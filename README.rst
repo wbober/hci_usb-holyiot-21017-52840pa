@@ -16,6 +16,10 @@ HoLyiot 21017-52840+PA module which includes:
 
 The green LED (LED2_G) turns on when the software is running.
 
+.. image:: doc/images/dongle.jpg
+   :alt: HoLyiot 21017-52840+PA dongle
+   :width: 400
+
 Hardware Configuration
 **********************
 

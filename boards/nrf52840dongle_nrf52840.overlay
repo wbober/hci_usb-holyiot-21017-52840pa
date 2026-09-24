@@ -1,0 +1,37 @@
+/*
+ * Devicetree overlay for HoLyiot 21017-52840+PA module
+ * Configures FEM (2401C PA/LNA) and LED
+ */
+
+/ {
+	/* Define the green LED alias */
+	aliases {
+		led-status = &led_green;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		led_green: led_2_green {
+			gpios = <&gpio1 9 GPIO_ACTIVE_LOW>;  /* R1 = P1.09 */
+			label = "Green LED 2";
+		};
+	};
+};
+
+/* FEM configuration for 2401C PA/LNA */
+&radio {
+	fem = <&fem>;
+};
+
+/ {
+	nrf_radio_fem: fem: fem {
+		compatible = "generic-fem-two-ctrl-pins";
+		/* Per schematic: TXEN -> AD20 (P0.24), RXEN -> AD18 (P0.22) */
+		ctx-gpios = <&gpio0 24 GPIO_ACTIVE_HIGH>;  /* TXEN */
+		crx-gpios = <&gpio0 22 GPIO_ACTIVE_HIGH>;  /* RXEN */
+		ctx-settle-time-us = <5>;
+		crx-settle-time-us = <5>;
+		tx-gain-db = <20>;  /* PA gain in dB */
+		rx-gain-db = <13>;  /* LNA gain in dB */
+	};
+};

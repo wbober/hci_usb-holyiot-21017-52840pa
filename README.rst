@@ -20,6 +20,9 @@ The green LED (LED2_G) turns on when the software is running.
    :alt: HoLyiot 21017-52840+PA dongle
    :width: 400
 
+The wall-mounted cable holder shown in the photo is a Unitek USB cable holder;
+the 3D-printable model is available at ``hardware/unitek_cable_holder.stl``.
+
 Hardware Configuration
 **********************
 
